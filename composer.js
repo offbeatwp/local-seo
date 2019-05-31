@@ -1,13 +1,9 @@
 {
     "name": "offbeatwp/local-seo",
-    "description": "Adding some GravityForms functionality",
+    "description": "Adding some Local Seo functionality",
     "license": "MIT",
     "type": "offbeatwp-service",
     "authors": [
-    {
-        "name": "Chris Schrijver",
-        "email": "chris@raow.nl"
-    },
     {
         "name": "Daan Seegers",
         "email": "daan@raow.nl"

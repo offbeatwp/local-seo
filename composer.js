@@ -14,5 +14,5 @@
         "OffbeatWP\\LocalSeo\\": "src"
     }
 },
-    "require": {}
+    "require": { "offbeatwp/acf-sitesettings": "*" }
 }

@@ -9,4 +9,6 @@ OffbeatWP has an SEO plugin for the local business that allows adding structured
 - The company name
 - Address Locality
 - Days and time the company is open
+
+`This is currently in the testing phase and will most likely not work`
  

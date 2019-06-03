@@ -5,7 +5,7 @@ use OffbeatWP\Services\AbstractService;
 use OffbeatWP\Contracts\SiteSettings;
 
 
-class LocalSeoService extends AbstractService
+class Service extends AbstractService
 {
     const ID = 'seo-settings';
 

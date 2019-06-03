@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Contracts\LocalSeo;
+namespace OffbeatWP\LocalSeo;
 
 use OffbeatWP\Services\AbstractService;
 

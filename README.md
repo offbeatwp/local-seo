@@ -13,6 +13,10 @@ OffbeatWP has an SEO plugin for the local business that allows adding and modify
 `This is currently in the testing phase and will most likely not work`
 
 
+`This plug-in may only work with the offbeat theme`
+
+
+
  Complete list of Company types
 
 - AnimalShelter

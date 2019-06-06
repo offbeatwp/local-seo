@@ -15,6 +15,10 @@ class Service extends AbstractService
 
         $settings->addPage(\OffbeatWP\LocalSeo\AddSeoFields::class);
 
+
+
+
+
     }
 }
 

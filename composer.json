@@ -2,7 +2,7 @@
   "name": "offbeatwp/local-seo",
   "description": "Adding some Local Seo functionality",
   "license": "MIT",
-  "type": "offbeatwp-local-seo",
+  "type": "offbeatwp-service",
   "authors": [
     {
       "name": "Daan Seegers",
@@ -18,3 +18,4 @@
     "offbeatwp/acf-core": "dev-master"
   }
 }
+

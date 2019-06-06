@@ -13,7 +13,7 @@ class Service extends AbstractService
     public function register(SiteSettings $settings)
     {
 
-        $settings->addPage(\OffbeatWP\LocalSeo\SettingsScripts::class);
+        $settings->addPage(\OffbeatWP\LocalSeo\AddSeoFields::class);
 
     }
 }

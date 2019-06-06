@@ -2,7 +2,7 @@
 
 namespace OffbeatWP\LocalSeo;
 
-class SettingsScripts
+class AddSeoFields
 {
     const ID = 'scripts';
     const PRIORITY = 1;

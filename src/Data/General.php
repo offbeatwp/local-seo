@@ -171,7 +171,7 @@ class General
 
     }
 
-    public function PriceRange()
+    public static function PriceRange()
     {
         $priceRange = ['$$$' => '$$$', '$$' => '$$', '$' => '$'];
 

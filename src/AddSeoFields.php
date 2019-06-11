@@ -23,14 +23,13 @@ class AddSeoFields
         $priceRange = \OffbeatWP\Form\Fields\Select::make('company_price_range', 'Price class');
         $localCompanyKind = \OffbeatWP\Form\Fields\Select::make('company_kind', 'Company Kind');
 
-
         $priceRange->addOptions(\OffbeatWP\LocalSeo\data\General::PriceRange());
 
         $form->addField($priceRange);
 
-        $openingsdays = \OffbeatWP\Form\Fields\Select::make('opening_hours', 'Openings Hours');
+        $openingsDays = \OffbeatWP\Form\Fields\Select::make('opening_hours', 'Openings Hours');
 
-        $openingsdays->addOptions(\OffbeatWP\LocalSeo\data\DateTime::Days());
+        $openingsDays->addOptions(\OffbeatWP\LocalSeo\data\DateTime::Days());
 
         $localCompanyKind->addOptions(\OffbeatWP\LocalSeo\data\General::CompanyKind());
 
@@ -56,7 +55,7 @@ class AddSeoFields
         $form->addField($countries);
         $form->addTab('opening-hours', 'Opening hours');
         $form->addRepeater('opening-hours-selector',
-            'Opening hours')->addField($openingsdays)->addField($openingHours)->addField($closingTime);
+            'Opening hours')->addField($openingsDays)->addField($openingHours)->addField($closingTime);
 
         return $form;
 

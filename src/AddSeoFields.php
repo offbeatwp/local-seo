@@ -16,16 +16,16 @@ class AddSeoFields
     {
 
         $form = new \OffbeatWP\Form\Form();
-        $form->addTab('general-information', 'Company name');
-        $form->addField(\OffbeatWP\Form\Fields\Text::make('company_name', 'Bedrijfsnaam'));
+        $form->addTab('general-information', 'General information');
+        $form->addField(\OffbeatWP\Form\Fields\Text::make('company_name', 'Company name'));
 
-        $priceRange = \OffbeatWP\Form\Fields\Select::make('company_price_range', 'Prijsklasse');
-        $localCompanyKind = \OffbeatWP\Form\Fields\Select::make('company_kind', 'Soort bedrijf');
+        $priceRange = \OffbeatWP\Form\Fields\Select::make('company_price_range', 'Price class');
+        $localCompanyKind = \OffbeatWP\Form\Fields\Select::make('company_kind', 'Company Kind');
 
         $priceRange->addOptions(['$$$' => '$$$', '$$' => '$$', '$' => '$']);
         $form->addField($priceRange);
 
-        $openingsdays = \OffbeatWP\Form\Fields\Select::make('opening_hours', 'Openingstijden');
+        $openingsdays = \OffbeatWP\Form\Fields\Select::make('opening_hours', 'Openings Hours');
         $openingsdays->addOptions([
             'Monday' => 'Monday',
             'Tuesday' => 'Tuesday',
@@ -35,6 +35,7 @@ class AddSeoFields
             'Saturday' => 'Saturday',
             'Sunday' => 'Sunday',
         ]);
+
 
 
         $localCompanyKind->addOptions([
@@ -224,8 +225,8 @@ class AddSeoFields
             '6:00' => '6:00',
         ];
 
-        $closingTime = \OffbeatWP\Form\Fields\Select::make('closing_time', 'Sluitingstijd');
-        $openingHours = \OffbeatWP\Form\Fields\Select::make('opening_time', 'Openingstijd');
+        $closingTime = \OffbeatWP\Form\Fields\Select::make('closing_time', 'Closing time');
+        $openingHours = \OffbeatWP\Form\Fields\Select::make('opening_time', 'Opening time');
 
         $closingTime->addOptions($time);
 
@@ -233,15 +234,15 @@ class AddSeoFields
 
         $form->addField($localCompanyKind);
 
-        $form->addTab('contact-information', 'Contact gegevens');
-        $form->addField(\OffbeatWP\Form\Fields\Text::make('company_fax', 'Faxnummer'));
-        $form->addField(\OffbeatWP\Form\Fields\Text::make('company_phone', 'Telefoonnummer'));
-        $form->addField(\OffbeatWP\Form\Fields\Text::make('company_street', 'Straat'));
+        $form->addTab('contact-information', 'Contact details');
+        $form->addField(\OffbeatWP\Form\Fields\Text::make('company_fax', 'Fax number'));
+        $form->addField(\OffbeatWP\Form\Fields\Text::make('company_phone', 'Telephone number'));
+        $form->addField(\OffbeatWP\Form\Fields\Text::make('company_street', 'Street'));
         $form->addField(\OffbeatWP\Form\Fields\Text::make('company_number', 'Number'));
-        $form->addField(\OffbeatWP\Form\Fields\Text::make('company_zip_code', 'Postcode'));
-        $form->addField(\OffbeatWP\Form\Fields\Text::make('company_place', 'Plaats'));
-        $form->addField(\OffbeatWP\Form\Fields\Text::make('company_province', 'Provincie'));
-        $form->addField(\OffbeatWP\Form\Fields\Text::make('company_country', 'Land'));
+        $form->addField(\OffbeatWP\Form\Fields\Text::make('company_zip_code', 'Zip code'));
+        $form->addField(\OffbeatWP\Form\Fields\Text::make('company_place', 'Place (City)'));
+        $form->addField(\OffbeatWP\Form\Fields\Text::make('company_province', 'Province'));
+        $form->addField(\OffbeatWP\Form\Fields\Text::make('company_country', 'Country'));
 
         $form->addTab('opening-hours', 'Openingstijden');
 

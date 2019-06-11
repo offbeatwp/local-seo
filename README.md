@@ -12,6 +12,8 @@ OffbeatWP has an SEO plugin for the local business that allows adding and modify
 
 `This is currently in the testing phase and will most likely not work`
 
+- To add the package to your offbeatWP theme add it to your package.json in the offbeatWP theme
+
 
 `This plug-in may only work with the offbeat theme`
 

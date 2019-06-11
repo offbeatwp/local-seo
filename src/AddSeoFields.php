@@ -16,7 +16,7 @@ class AddSeoFields
     {
 
         $form = new \OffbeatWP\Form\Form();
-        $form->addTab('general-information', 'Algemene gegevens');
+        $form->addTab('general-information', 'Company name');
         $form->addField(\OffbeatWP\Form\Fields\Text::make('company_name', 'Bedrijfsnaam'));
 
         $priceRange = \OffbeatWP\Form\Fields\Select::make('company_price_range', 'Prijsklasse');

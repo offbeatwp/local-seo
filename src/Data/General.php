@@ -179,4 +179,10 @@ class General
         return $priceRange;
     }
 
+    public static function Currency() {
+
+
+
+    }
+
 }

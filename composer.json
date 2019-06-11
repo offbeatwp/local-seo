@@ -19,7 +19,8 @@
     }
   },
   "require": {
-    "offbeatwp/acf-core": "dev-master"
+    "offbeatwp/acf-core": "dev-master",
+    "moneyphp/money": "3.2.1",
   }
 }
 

@@ -7,6 +7,10 @@
     {
       "name": "Daan Seegers",
       "email": "daan@raow.nl"
+    },
+    {
+      "name": "Chris Schrijver",
+      "email": "chris@raow.nl"
     }
   ],
   "autoload": {

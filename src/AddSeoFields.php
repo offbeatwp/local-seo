@@ -4,7 +4,7 @@ namespace OffbeatWP\LocalSeo;
 
 class AddSeoFields
 {
-    const ID = 'scripts';
+    const ID = 'local-seo';
     const PRIORITY = 1;
 
     public function title()

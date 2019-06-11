@@ -19,7 +19,6 @@ class AddSeoFields
 
         $form->addTab('general-information', 'General information');
         $form->addField(\OffbeatWP\Form\Fields\Text::make('company_name', 'Company name'));
-
         $priceRange = \OffbeatWP\Form\Fields\Select::make('company_price_range', 'Price class');
         $localCompanyKind = \OffbeatWP\Form\Fields\Select::make('company_kind', 'Company Kind');
 
@@ -34,7 +33,7 @@ class AddSeoFields
         $localCompanyKind->addOptions(\OffbeatWP\LocalSeo\data\General::CompanyKind());
 
 
-        $countries =  \OffbeatWP\Form\Fields\Select::make('countries', 'Countries');
+        $countries = \OffbeatWP\Form\Fields\Select::make('countries', 'Countries');
 
         $countries->addOptions(\OffbeatWP\LocalSeo\data\Location::country());
 

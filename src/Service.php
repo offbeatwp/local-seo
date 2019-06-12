@@ -14,7 +14,9 @@ class Service extends AbstractService
     public function register(SiteSettings $settings)
     {
         $settings->addPage(AddSeoFields::class);
-       \OffbeatWP\LocalSeo\ChangeSeo::update();
+
+        $changeSeo = ChangeSeo::singleton();
+        $changeSeo->update();
 
     }
 }

@@ -12,19 +12,17 @@ class ChangeSeo
 
         add_filter('wpseo_schema_organization', [$this, 'changeOrganizationData']);
 
-        var_dump(setting('opening-hours-selector'));
-
     }
 
     public function changeOrganizationData($data)
     {
         $newData = collect();
 
-        $this->getOrganizationData('@type', 'company_kind', $newData);
-        $this->getOrganizationData('name', 'company_name', $newData);
-        $this->getOrganizationData('url', 'url', $newData);
-        $this->getOrganizationData('telephone', 'phone', $newData);
-        $this->getOrganizationData('fax', 'fax', $newData);
+        $this->getOrganizationData('@type', 'localseo_company_type', $newData);
+        $this->getOrganizationData('name', 'localseo_company_name', $newData);
+        $this->getOrganizationData('url', 'localseo_company_link', $newData);
+        $this->getOrganizationData('telephone', 'localseo_company_phone', $newData);
+        $this->getOrganizationData('fax', 'localseo_company_fax', $newData);
 
 
         $data['address'] = [

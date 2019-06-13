@@ -3,6 +3,8 @@
 namespace OffbeatWP\LocalSeo;
 
 
+use function YoastSEO_Vendor\GuzzleHttp\default_ca_bundle;
+
 class ChangeSeo
 {
 
@@ -23,6 +25,7 @@ class ChangeSeo
         $this->getOrganizationData('url', 'localseo_company_link', $newData);
         $this->getOrganizationData('telephone', 'localseo_company_phone', $newData);
         $this->getOrganizationData('fax', 'localseo_company_fax', $newData);
+        $this->getOrganizationData('openingHoursSpecification', '', $newData);
 
 
         $data['address'] = [
@@ -38,19 +41,29 @@ class ChangeSeo
             "https://twitter.com/yoast",
         ];
 
-        return $newData->toArray();
+        return $data;
+
 
     }
 
-    public function getOrganizationData($type, $key, $data)
+    public function getOrganizationData($type, $key = null, $data)
     {
+        switch ($type) {
+            case 'openingHoursSpecification':
+                $openingshours = setting('opening-hours-selector');
+                var_dump($openingshours);
+//                array shizzle
 
-        if (!empty($settingValue = setting($key))) {
-            $data->put($type, $settingValue);
+                $data->put($type, 'openingHoursSpecification');
+                break;
+            default:
+                if (!empty($settingValue = setting($key))) {
+
+                    $data->put($type, $settingValue);
+                    break;
+                }
         }
-
     }
-
 
 
 }

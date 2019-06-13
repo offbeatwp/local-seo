@@ -9,7 +9,7 @@ class AddSeoFields
 
     public function title()
     {
-        return __('Seo', 'raow');
+        return __('Local Seo', 'raow');
     }
 
     public function form()
@@ -27,7 +27,7 @@ class AddSeoFields
 
         $form->addField($priceRange);
 
-        $openingsDays = \OffbeatWP\Form\Fields\Select::make('localseo_opening_days', 'Day');
+        $openingsDays = \OffbeatWP\Form\Fields\Select::make('localseo_opening_day', 'Day');
 
         $openingsDays->addOptions(\OffbeatWP\LocalSeo\data\DateTime::Days());
 

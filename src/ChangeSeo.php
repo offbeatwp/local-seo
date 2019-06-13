@@ -6,42 +6,53 @@ namespace OffbeatWP\LocalSeo;
 class ChangeSeo
 {
 
-    public function update()
+
+    public function __construct()
     {
 
         add_filter('wpseo_schema_organization', [$this, 'changeOrganizationData']);
+
+        var_dump(setting('opening-hours-selector'));
 
     }
 
     public function changeOrganizationData($data)
     {
+        $newData = collect();
 
-        $data['@type'] = 'aa';
-        $data['name'] = 'naam';
-        $data['url'] = 'url';
-        $data['telephone'] = 'telephone';
-        $data['fax'] = 'fax';
+        $this->getOrganizationData('@type', 'company_kind', $newData);
+        $this->getOrganizationData('name', 'company_name', $newData);
+        $this->getOrganizationData('url', 'url', $newData);
+        $this->getOrganizationData('telephone', 'phone', $newData);
+        $this->getOrganizationData('fax', 'fax', $newData);
+
 
         $data['address'] = [
             '@type' => 'PostalAddress',
             'addressLocality' =>
                 '{{ Plaats }} , {{ LAND }}',
-            'streetAddress' => '{{ Straat }}'
+            'streetAddress' => '{{ Straat }}',
+        ];
+        $data['sameAs'] = [
+            "https://www.facebook.com/yoast",
+            "https://www.linkedin.com/company/yoast-com/",
+            "https://en.wikipedia.org/wiki/Yoast",
+            "https://twitter.com/yoast",
         ];
 
-        return $data;
+        return $newData->toArray();
 
     }
 
-
-    static function singleton()
+    public function getOrganizationData($type, $key, $data)
     {
-        static $instance = null;
-        if ($instance === null) {
-            $instance = new ChangeSeo();
+
+        if (!empty($settingValue = setting($key))) {
+            $data->put($type, $settingValue);
         }
-        return $instance;
+
     }
+
 
 
 }

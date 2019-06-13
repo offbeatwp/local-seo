@@ -15,8 +15,7 @@ class Service extends AbstractService
     {
         $settings->addPage(AddSeoFields::class);
 
-        $changeSeo = ChangeSeo::singleton();
-        $changeSeo->update();
+        new ChangeSeo();
 
     }
 }

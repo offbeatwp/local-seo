@@ -27,6 +27,9 @@ class ChangeSeo
             $data['openingHours'] = $days;
         }
 
+        if (setting('localseo_company_image') != null) {
+            $data['image'] = wp_get_attachment_image_src(setting('localseo_company_image'), 'large')[0];
+        }
 
         if (setting('localseo_company_fax') != null) {
             $data['faxNumber'] = setting('localseo_company_fax');
@@ -47,7 +50,6 @@ class ChangeSeo
             $data['name'] = setting('localseo_company_name');
         }
 
-
         $data['address'] = [
             '@type' => 'PostalAddress',
             'addressLocality' =>
@@ -55,7 +57,6 @@ class ChangeSeo
             'streetAddress' => setting(localseo_company_street) . ' ' . setting('localseo_company_number'),
             'postalCode' => setting('localseo_company_zip_code'),
         ];
-
 
 
         return $data;

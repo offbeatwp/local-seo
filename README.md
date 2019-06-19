@@ -15,6 +15,17 @@ OffbeatWP has an SEO plugin for the local business that allows adding and modify
 - To add the package to your offbeatWP theme add it to your package.json in the offbeatWP theme
 
 
-`This plug-in may only work with the offbeat theme`
+`This plug-in only works with the offbeat theme`
+
+```bash
+composer require offbeatwp/local-seo
+```
+
+Next add the following line to your `config/services.php` file:
+
+```
+OffbeatWP\LocalSeo\Service::class,
+```
+
 
 

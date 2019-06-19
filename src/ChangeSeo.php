@@ -18,51 +18,39 @@ class ChangeSeo
 
     public function changeOrganizationData($data)
     {
-        $newData = collect();
 
-        $this->getOrganizationData('@type', 'localseo_company_type', $newData);
-        $this->getOrganizationData('name', 'localseo_company_name', $newData);
-        $this->getOrganizationData('url', 'localseo_company_link', $newData);
-        $this->getOrganizationData('telephone', 'localseo_company_phone', $newData);
-        $this->getOrganizationData('fax', 'localseo_company_fax', $newData);
-        $this->getOrganizationData('openingHoursSpecification', '', $newData);
+//        if (setting('opening-hours-selector') != null) {
+//            $days = null;
+//            foreach (setting('opening-hours-selector') as $day) {
+//                $days[] = $day['localseo_opening_day'] . ' ' . $day['localseo_opening_time'] . '-' . $day['localseo_closing_time'];
+//            }
+//            $data['openingHours'] = implode(', ',$days);
+//        }
+
+        if (setting('localseo_company_fax') != null) {
+            $data['faxNumber'] = setting('localseo_company_fax');
+        }
+        if (setting('localseo_company_phone') != null) {
+            $data['telephone'] = setting('localseo_company_phone');
+        }
+
+        if (setting('localseo_company_type') != null) {
+            $data['@type'] = setting('localseo_company_type');
+        }
+
+//        $data['openingHours'] = '"Mo-Fr 10:00-19:00", "Sa 10:00-22:00", "Su 10:00-21:00"';
 
 
         $data['address'] = [
             '@type' => 'PostalAddress',
             'addressLocality' =>
-                '{{ Plaats }} , {{ LAND }}',
-            'streetAddress' => '{{ Straat }}',
-        ];
-        $data['sameAs'] = [
-            "https://www.facebook.com/yoast",
-            "https://www.linkedin.com/company/yoast-com/",
-            "https://en.wikipedia.org/wiki/Yoast",
-            "https://twitter.com/yoast",
+                setting(localseo_company_place) . ', ' . setting('localseo_company_country'),
+            'streetAddress' => setting(localseo_company_street) . ' ' . setting('localseo_company_number'),
+            'postalCode' => setting('localseo_company_zip_code'),
         ];
 
         return $data;
 
-
-    }
-
-    public function getOrganizationData($type, $key = null, $data)
-    {
-        switch ($type) {
-            case 'openingHoursSpecification':
-                $openingshours = setting('opening-hours-selector');
-                var_dump($openingshours);
-//                array shizzle
-
-                $data->put($type, 'openingHoursSpecification');
-                break;
-            default:
-                if (!empty($settingValue = setting($key))) {
-
-                    $data->put($type, $settingValue);
-                    break;
-                }
-        }
     }
 
 

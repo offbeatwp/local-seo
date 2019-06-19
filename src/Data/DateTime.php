@@ -5,7 +5,7 @@ namespace OffbeatWP\LocalSeo\Data;
 class DateTime
 {
 
-    public static function Time()
+    public static function time()
     {
 
         $time = [
@@ -39,7 +39,7 @@ class DateTime
 
     }
 
-    public static function Days(){
+    public static function days(){
 
         $days = [
             'Mo' => 'Monday',

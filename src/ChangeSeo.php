@@ -19,6 +19,8 @@ class ChangeSeo
     public function changeOrganizationData($data)
     {
 
+
+
         if (setting('opening-hours-selector') != null) {
             $days = null;
             foreach (setting('opening-hours-selector') as $day) {

@@ -20,19 +20,20 @@ class AddSeoFields
         $form->addTab('localseo_company_general-information', 'General information');
         $form->addField(\OffbeatWP\Form\Fields\Text::make('localseo_company_name', 'Company name'));
         $form->addField(\OffbeatWP\Form\Fields\Text::make('localseo_company_link', 'Company website'));
-        $form->addField(\OffbeatWP\Form\Fields\Image::make('localseo_company_image', 'Company image'));
         $priceRange = \OffbeatWP\Form\Fields\Select::make('company_price_range', 'Price class');
         $localCompanyKind = \OffbeatWP\Form\Fields\Select::make('localseo_company_type', 'Company Type');
 
-        $priceRange->addOptions(\OffbeatWP\LocalSeo\data\General::PriceRange());
+
+
+        $priceRange->addOptions(\OffbeatWP\LocalSeo\data\General::priceRange());
 
         $form->addField($priceRange);
 
         $openingsDays = \OffbeatWP\Form\Fields\Select::make('localseo_opening_day', 'Day');
 
-        $openingsDays->addOptions(\OffbeatWP\LocalSeo\data\DateTime::Days());
+        $openingsDays->addOptions(\OffbeatWP\LocalSeo\data\DateTime::days());
 
-        $localCompanyKind->addOptions(\OffbeatWP\LocalSeo\data\General::CompanyKind());
+        $localCompanyKind->addOptions(\OffbeatWP\LocalSeo\data\General::companyKind());
 
         $countries = \OffbeatWP\Form\Fields\Select::make('localseo_company_country', 'Country');
 
@@ -41,9 +42,10 @@ class AddSeoFields
         $closingTime = \OffbeatWP\Form\Fields\Select::make('localseo_closing_time', 'Closing time');
         $openingHours = \OffbeatWP\Form\Fields\Select::make('localseo_opening_time', 'Opening time');
 
-        $closingTime->addOptions(\OffbeatWP\LocalSeo\data\DateTime::Time());
-        $openingHours->addOptions(\OffbeatWP\LocalSeo\data\DateTime::Time());
+        $closingTime->addOptions(\OffbeatWP\LocalSeo\data\DateTime::time());
+        $openingHours->addOptions(\OffbeatWP\LocalSeo\data\DateTime::time());
         $form->addField($localCompanyKind);
+        $form->addField(\OffbeatWP\Form\Fields\Image::make('localseo_company_image', 'Company image'));
         $form->addTab('contact-information', 'Contact details');
         $form->addField(\OffbeatWP\Form\Fields\Text::make('localseo_company_fax', 'Fax number'));
         $form->addField(\OffbeatWP\Form\Fields\Text::make('localseo_company_phone', 'Telephone number'));

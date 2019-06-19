@@ -10,7 +10,7 @@ OffbeatWP has an SEO plugin for the local business that allows adding and modify
 - Address Locality
 - Days and time the company is open
 
-`This is currently in the testing phase and will most likely not work`
+`The package is working :)`
 
 - To add the package to your offbeatWP theme add it to your package.json in the offbeatWP theme
 

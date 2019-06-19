@@ -19,13 +19,14 @@ class ChangeSeo
     public function changeOrganizationData($data)
     {
 
-//        if (setting('opening-hours-selector') != null) {
-//            $days = null;
-//            foreach (setting('opening-hours-selector') as $day) {
-//                $days[] = $day['localseo_opening_day'] . ' ' . $day['localseo_opening_time'] . '-' . $day['localseo_closing_time'];
-//            }
-//            $data['openingHours'] = implode(', ',$days);
-//        }
+        if (setting('opening-hours-selector') != null) {
+            $days = null;
+            foreach (setting('opening-hours-selector') as $day) {
+                $days[] = $day['localseo_opening_day'] . ' ' . $day['localseo_opening_time'] . '-' . $day['localseo_closing_time'];
+            }
+            $data['openingHours'] = $days;
+        }
+
 
         if (setting('localseo_company_fax') != null) {
             $data['faxNumber'] = setting('localseo_company_fax');
@@ -38,7 +39,13 @@ class ChangeSeo
             $data['@type'] = setting('localseo_company_type');
         }
 
-//        $data['openingHours'] = '"Mo-Fr 10:00-19:00", "Sa 10:00-22:00", "Su 10:00-21:00"';
+        if (setting('localseo_company_type') != null) {
+            $data['priceRange'] = setting('company_price_range');
+        }
+
+        if (setting('localseo_company_name') != null) {
+            $data['name'] = setting('localseo_company_name');
+        }
 
 
         $data['address'] = [
@@ -48,6 +55,8 @@ class ChangeSeo
             'streetAddress' => setting(localseo_company_street) . ' ' . setting('localseo_company_number'),
             'postalCode' => setting('localseo_company_zip_code'),
         ];
+
+
 
         return $data;
 

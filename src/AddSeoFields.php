@@ -33,8 +33,7 @@ class AddSeoFields
 
         $localCompanyKind->addOptions(\OffbeatWP\LocalSeo\data\General::CompanyKind());
 
-
-        $countries = \OffbeatWP\Form\Fields\Select::make('localseo_company_countries', 'Countries');
+        $countries = \OffbeatWP\Form\Fields\Select::make('localseo_company_country', 'Country');
 
         $countries->addOptions(\OffbeatWP\LocalSeo\data\Location::country());
 

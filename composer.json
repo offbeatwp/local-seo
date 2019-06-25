@@ -16,7 +16,8 @@
   },
   "require": {
     "offbeatwp/acf-core": "dev-master",
-    "offbeatwp/acf-layout": "dev-master"
+    "offbeatwp/acf-layout": "dev-master",
+    "offbeatwp/acf-sitesettings": "dev-master",
   }
 }
 

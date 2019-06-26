@@ -23,3 +23,7 @@ Next add the following line to your `config/services.php` file:
 ```
 OffbeatWP\LocalSeo\Service::class,
 ```
+
+### Screenshot
+
+![Screehshot](Screenshot.png)

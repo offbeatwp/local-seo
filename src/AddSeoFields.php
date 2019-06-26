@@ -15,6 +15,8 @@ class AddSeoFields
     public function form()
     {
 
+
+
         $form = new \OffbeatWP\Form\Form();
 
         $form->addTab('localseo_company_general-information', 'General information');

@@ -4,6 +4,7 @@ namespace OffbeatWP\LocalSeo\Data;
 
 use Money\Currencies\ISOCurrencies;
 
+
 class General
 {
 

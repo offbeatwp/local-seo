@@ -20,8 +20,6 @@ class ChangeSeo
     {
 
 
-
-
         // General information
 
         //Company name
@@ -54,15 +52,13 @@ class ChangeSeo
         }
         //Company slogan
         if (setting('localseo_company_slogan') != null) {
-            $data['slogan'] = wp_get_attachment_image_src(setting('localseo_company_slogan'), 'large')[0];
+            $data['slogan'] = setting('localseo_company_slogan');
         }
         //Company tax id
         if (setting('localseo_company_tax_id') != null) {
-            $data['taxID'] = wp_get_attachment_image_src(setting('localseo_company_tax_id'), 'large')[0];
+            $data['taxID'] = setting('localseo_company_tax_id');
         }
-
         // Company location
-
         $data['address'] = [
             '@type' => 'PostalAddress',
             'addressLocality' =>
@@ -100,8 +96,6 @@ class ChangeSeo
             }
             $data['currenciesAccepted'] = implode(', ', $currencies);
         }
-
-
 
 
         return $data;

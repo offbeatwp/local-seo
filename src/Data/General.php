@@ -200,6 +200,14 @@ class General
             'Credit Card' => 'Credit Card',
             'Cryptocurrency' => 'Cryptocurrency',
             'Local Exchange Tradings System' => 'Local Exchange Tradings System',
+            'ByBankTransferInAdvance' => 'ByBankTransferInAdvance',
+            'ByInvoice' => 'ByInvoice',
+            'CheckInAdvance' => 'CheckInAdvance',
+            'COD' => 'COD',
+            'DirectDebit' => 'DirectDebit',
+            'GoogleCheckout' => 'GoogleCheckout',
+            'PayPal' => 'PayPal',
+            'PaySwarm' => 'PaySwarm'
         ];
 
         return $paymentMethod;

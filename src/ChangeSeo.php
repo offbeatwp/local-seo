@@ -19,14 +19,22 @@ class ChangeSeo
     public function changeOrganizationData($data)
     {
 
-//var_dump(setting('currency-selectors'));
+        if (setting('paymentmethod-selectors') != null) {
+            $paymentMethods = null;
+            foreach (setting('paymentmethod-selectors') as $paymentMethode) {
+                $paymentMethods[] = $paymentMethode['payment_method'];
+            }
+            $data['paymentAccepted'] = implode(', ', $paymentMethods);
+        }
+
+
 
         if (setting('currency-selectors') != null) {
-            $days = null;
+            $currencies = null;
             foreach (setting('currency-selectors') as $currency) {
                 $currencies[] = $currency['local_seo_currencies'];
             }
-            $data['currenciesAccepted'] = $currencies;
+            $data['currenciesAccepted'] = implode(', ', $currencies);
         }
 
         if (setting('opening-hours-selector') != null) {
@@ -35,6 +43,7 @@ class ChangeSeo
                 $days[] = $day['localseo_opening_day'] . ' ' . $day['localseo_opening_time'] . '-' . $day['localseo_closing_time'];
             }
             $data['openingHours'] = $days;
+
         }
 
         if (setting('localseo_company_image') != null) {

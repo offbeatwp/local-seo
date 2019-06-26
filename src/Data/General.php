@@ -193,4 +193,16 @@ class General
         return $returnCurrency;
     }
 
+    public static function paymentMethod()
+    {
+        $paymentMethod = [
+            'Cash' => 'Cash',
+            'Credit Card' => 'Credit Card',
+            'Cryptocurrency' => 'Cryptocurrency',
+            'Local Exchange Tradings System' => 'Local Exchange Tradings System',
+        ];
+
+        return $paymentMethod;
+    }
+
 }

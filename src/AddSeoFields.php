@@ -20,6 +20,11 @@ class AddSeoFields
 
         $form->addTab('localseo_company_general-information', 'General information');
         $form->addField(\OffbeatWP\Form\Fields\Text::make('localseo_company_name', 'Company name'));
+        $form->addField(\OffbeatWP\Form\Fields\Text::make('localseo_company_email', 'Company email'));
+        $form->addField(\OffbeatWP\Form\Fields\Text::make('localseo_company_slogan', 'Company slogan'));
+        $form->addField(\OffbeatWP\Form\Fields\Text::make('localseo_company_tax_id', 'Company tax id'));
+
+
         $form->addField(\OffbeatWP\Form\Fields\Text::make('localseo_company_link', 'Company website'));
         $localCompanyKind = \OffbeatWP\Form\Fields\Select::make('localseo_company_type', 'Company Type');
 

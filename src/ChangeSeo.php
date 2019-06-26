@@ -19,7 +19,15 @@ class ChangeSeo
     public function changeOrganizationData($data)
     {
 
+//var_dump(setting('currency-selectors'));
 
+        if (setting('currency-selectors') != null) {
+            $days = null;
+            foreach (setting('currency-selectors') as $currency) {
+                $currencies[] = $currency['local_seo_currencies'];
+            }
+            $data['currenciesAccepted'] = $currencies;
+        }
 
         if (setting('opening-hours-selector') != null) {
             $days = null;

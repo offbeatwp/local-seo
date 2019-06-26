@@ -179,7 +179,8 @@ class General
         return $priceRange;
     }
 
-    public static function currency() {
+    public static function currency()
+    {
 
         $currency = [
             'Albania Lek' => 'Albania Lek',
@@ -216,7 +217,7 @@ class General
             'Egypt Pound' => 'Egypt Pound',
             'El Salvador Colon' => 'El Salvador Colon',
             'Estonia Kroon' => 'Estonia Kroon',
-            'Euro Member Countries' => 'Euro Member Countries',
+            'Euro' => 'Euro',
             'Falkland Islands (Malvinas) Pound' => 'Falkland Islands (Malvinas) Pound',
             'Fiji Dollar' => 'Fiji Dollar',
             'Ghana Cedis' => 'Ghana Cedis',
@@ -297,8 +298,7 @@ class General
             'Zimbabwe Dollar' => 'Zimbabwe Dollar',
         ];
 
-
-
+        return $currency;
     }
 
 }

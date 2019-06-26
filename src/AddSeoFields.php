@@ -31,6 +31,8 @@ class AddSeoFields
 
         $openingsDays = \OffbeatWP\Form\Fields\Select::make('localseo_opening_day', 'Day');
 
+
+
         $openingsDays->addOptions(\OffbeatWP\LocalSeo\data\DateTime::days());
 
         $localCompanyKind->addOptions(\OffbeatWP\LocalSeo\data\General::companyKind());
@@ -55,9 +57,18 @@ class AddSeoFields
         $form->addField(\OffbeatWP\Form\Fields\Text::make('localseo_company_place', 'Place (City)'));
         $form->addField(\OffbeatWP\Form\Fields\Text::make('localseo_company_province', 'Province'));
         $form->addField($countries);
+
         $form->addTab('opening-hours', 'Opening hours');
         $form->addRepeater('opening-hours-selector',
             'Opening hours')->addField($openingsDays)->addField($openingHours)->addField($closingTime);
+        $form->addTab('currency', 'Currency');
+        $currencies = \OffbeatWP\Form\Fields\Select::make('local_seo_currencies', 'Currency');
+
+
+        $currencies->addOptions(\OffbeatWP\LocalSeo\data\General::currency());
+        $form->addRepeater('currency-selectors',
+            'Add currency to your store')->addField($currencies);
+
 
         return $form;
 

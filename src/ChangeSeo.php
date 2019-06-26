@@ -19,23 +19,60 @@ class ChangeSeo
     public function changeOrganizationData($data)
     {
 
-        if (setting('paymentmethod-selectors') != null) {
-            $paymentMethods = null;
-            foreach (setting('paymentmethod-selectors') as $paymentMethode) {
-                $paymentMethods[] = $paymentMethode['payment_method'];
-            }
-            $data['paymentAccepted'] = implode(', ', $paymentMethods);
+
+
+
+        // General information
+
+        //Company name
+        if (setting('localseo_company_name') != null) {
+            $data['name'] = setting('localseo_company_name');
+        }
+        //Company email
+        if (setting('localseo_company_email') != null) {
+            $data['email'] = setting('localseo_company_email');
+        }
+        //Company fax
+        if (setting('localseo_company_fax') != null) {
+            $data['faxNumber'] = setting('localseo_company_fax');
+        }
+        //Company phone
+        if (setting('localseo_company_phone') != null) {
+            $data['telephone'] = setting('localseo_company_phone');
+        }
+        //Company type
+        if (setting('localseo_company_type') != null) {
+            $data['@type'] = setting('localseo_company_type');
+        }
+        //Company price range
+        if (setting('company_price_range') != null) {
+            $data['priceRange'] = setting('company_price_range');
+        }
+        //Company image
+        if (setting('localseo_company_image') != null) {
+            $data['image'] = wp_get_attachment_image_src(setting('localseo_company_image'), 'large')[0];
+        }
+        //Company slogan
+        if (setting('localseo_company_slogan') != null) {
+            $data['slogan'] = wp_get_attachment_image_src(setting('localseo_company_slogan'), 'large')[0];
+        }
+        //Company tax id
+        if (setting('localseo_company_tax_id') != null) {
+            $data['taxID'] = wp_get_attachment_image_src(setting('localseo_company_tax_id'), 'large')[0];
         }
 
+        // Company location
+
+        $data['address'] = [
+            '@type' => 'PostalAddress',
+            'addressLocality' =>
+                setting(localseo_company_place) . ', ' . setting('localseo_company_country'),
+            'streetAddress' => setting(localseo_company_street) . ' ' . setting('localseo_company_number'),
+            'postalCode' => setting('localseo_company_zip_code'),
+        ];
 
 
-        if (setting('currency-selectors') != null) {
-            $currencies = null;
-            foreach (setting('currency-selectors') as $currency) {
-                $currencies[] = $currency['local_seo_currencies'];
-            }
-            $data['currenciesAccepted'] = implode(', ', $currencies);
-        }
+        // Opening Times company
 
         if (setting('opening-hours-selector') != null) {
             $days = null;
@@ -46,36 +83,25 @@ class ChangeSeo
 
         }
 
-        if (setting('localseo_company_image') != null) {
-            $data['image'] = wp_get_attachment_image_src(setting('localseo_company_image'), 'large')[0];
+        // $$$ company
+
+        if (setting('paymentmethod-selectors') != null) {
+            $paymentMethods = null;
+            foreach (setting('paymentmethod-selectors') as $paymentMethode) {
+                $paymentMethods[] = $paymentMethode['payment_method'];
+            }
+            $data['paymentAccepted'] = implode(', ', $paymentMethods);
         }
 
-        if (setting('localseo_company_fax') != null) {
-            $data['faxNumber'] = setting('localseo_company_fax');
-        }
-        if (setting('localseo_company_phone') != null) {
-            $data['telephone'] = setting('localseo_company_phone');
-        }
-
-        if (setting('localseo_company_type') != null) {
-            $data['@type'] = setting('localseo_company_type');
+        if (setting('currency-selectors') != null) {
+            $currencies = null;
+            foreach (setting('currency-selectors') as $currency) {
+                $currencies[] = $currency['local_seo_currencies'];
+            }
+            $data['currenciesAccepted'] = implode(', ', $currencies);
         }
 
-        if (setting('localseo_company_type') != null) {
-            $data['priceRange'] = setting('company_price_range');
-        }
 
-        if (setting('localseo_company_name') != null) {
-            $data['name'] = setting('localseo_company_name');
-        }
-
-        $data['address'] = [
-            '@type' => 'PostalAddress',
-            'addressLocality' =>
-                setting(localseo_company_place) . ', ' . setting('localseo_company_country'),
-            'streetAddress' => setting(localseo_company_street) . ' ' . setting('localseo_company_number'),
-            'postalCode' => setting('localseo_company_zip_code'),
-        ];
 
 
         return $data;

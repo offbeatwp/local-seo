@@ -56,6 +56,55 @@ class MakeAcfFieldsForStructuredData
         ];
     }
 
+    public function addDateField($fieldLabel, $fieldName)
+    {
+
+
+        $this->acfField['fields'][] =
+            [
+                'key'               => sha1($fieldName),
+                'label'             => $fieldLabel,
+                'name'              => $fieldName,
+                'type'              => 'date_picker',
+                'instructions'      => '',
+                'required'          => 0,
+                'conditional_logic' => 0,
+                'wrapper'           => [
+                    'width' => '',
+                    'class' => '',
+                    'id'    => '',
+                ],
+                'display_format'    => 'd/m/Y',
+                'return_format'     => 'd/m/Y',
+                'first_day'         => 1,
+
+            ];
+
+    }
+
+    public function addUrlField($fieldLabel, $fieldName)
+    {
+
+        $this->acfField['fields'][] =
+            [
+                'key'               => sha1($fieldName),
+                'label'             => $fieldLabel,
+                'name'              => $fieldName,
+                'type'              => 'url',
+                'instructions'      => '',
+                'required'          => 0,
+                'conditional_logic' => 0,
+                'wrapper'           => [
+                    'width' => '',
+                    'class' => '',
+                    'id'    => '',
+                ],
+                'default_value'     => '',
+                'placeholder'       => '',
+            ];
+    }
+
+
     public function addTextBoxField($fieldLabel, $fieldName)
     {
 
@@ -107,7 +156,6 @@ class MakeAcfFieldsForStructuredData
     {
 
 
-
         $this->acfField['fields'][] = [
             'key'               => sha1($fieldName),
             'label'             => $fieldLabel,
@@ -126,9 +174,9 @@ class MakeAcfFieldsForStructuredData
         ];
 
         $this->acfField['fields'][] = [
-            'key'               => 'enabled'.sha1($fieldName),
+            'key'               => 'enabled' . sha1($fieldName),
             'label'             => 'Is ' . $fieldLabel . ' is activated?',
-            'name'              => 'enabled'.sha1($fieldName),
+            'name'              => 'enabled' . sha1($fieldName),
             'type'              => 'true_false',
             'instructions'      => '',
             'required'          => 0,

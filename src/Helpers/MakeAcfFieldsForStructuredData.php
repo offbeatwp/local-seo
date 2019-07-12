@@ -80,6 +80,73 @@ class MakeAcfFieldsForStructuredData
         ];
     }
 
+    public function addTabField($fieldLabel, $fieldName)
+    {
+
+        $this->acfField['fields'][] = [
+            'key'               => sha1($fieldName),
+            'label'             => $fieldLabel,
+            'name'              => '',
+            'type'              => 'tab',
+            'instructions'      => '',
+            'required'          => 0,
+            'conditional_logic' => 0,
+            'wrapper'           => [
+                'width' => '',
+                'class' => '',
+                'id'    => '',
+            ],
+            'placement'         => 'top',
+            'endpoint'          => 0,
+        ];
+
+    }
+
+
+    public function addType($fieldLabel, $fieldName)
+    {
+
+
+
+        $this->acfField['fields'][] = [
+            'key'               => sha1($fieldName),
+            'label'             => $fieldLabel,
+            'name'              => '',
+            'type'              => 'tab',
+            'instructions'      => '',
+            'required'          => 0,
+            'conditional_logic' => 0,
+            'wrapper'           => [
+                'width' => '',
+                'class' => '',
+                'id'    => '',
+            ],
+            'placement'         => 'top',
+            'endpoint'          => 0,
+        ];
+
+        $this->acfField['fields'][] = [
+            'key'               => 'enabled'.sha1($fieldName),
+            'label'             => 'Is ' . $fieldLabel . ' is activated?',
+            'name'              => 'enabled'.sha1($fieldName),
+            'type'              => 'true_false',
+            'instructions'      => '',
+            'required'          => 0,
+            'conditional_logic' => 0,
+            'wrapper'           => [
+                'width' => '',
+                'class' => '',
+                'id'    => '',
+            ],
+            'message'           => '',
+            'default_value'     => 0,
+            'ui'                => 0,
+            'ui_on_text'        => '',
+            'ui_off_text'       => '',
+        ];
+
+    }
+
 
     public function execute()
     {

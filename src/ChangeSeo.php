@@ -62,8 +62,8 @@ class ChangeSeo
         $data['address'] = [
             '@type' => 'PostalAddress',
             'addressLocality' =>
-                setting(localseo_company_place) . ', ' . setting('localseo_company_country'),
-            'streetAddress' => setting(localseo_company_street) . ' ' . setting('localseo_company_number'),
+                setting('localseo_company_place') . ', ' . setting('localseo_company_country'),
+            'streetAddress' => setting('localseo_company_street') . ' ' . setting('localseo_company_number'),
             'postalCode' => setting('localseo_company_zip_code'),
         ];
 

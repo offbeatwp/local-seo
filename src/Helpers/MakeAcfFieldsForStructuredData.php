@@ -16,7 +16,7 @@ class MakeAcfFieldsForStructuredData
                     [
                         'param'    => 'post_type',
                         'operator' => '==',
-                        'value'    => 'voorbeeld_1',
+                        'value'    => 'voorbeeld_2',
                     ],
                 ],
             ],
@@ -81,11 +81,33 @@ class MakeAcfFieldsForStructuredData
     }
 
 
-
     public function execute()
     {
 
+        $args = [
+            'public'   => true,
+            '_builtin' => false,
+        ];
+
+        $output = 'names'; // names or objects, note names is the default
+        $operator = 'and'; // 'and' or 'or'
+
+        $post_types = get_post_types($args, $output, $operator);
+
+        foreach ($post_types as $post_type) {
+
+            $this->acfField['location'][] = [
+                [
+                    'param'    => 'post_type',
+                    'operator' => '==',
+                    'value'    => $post_type,
+                ],
+            ];
+
+        }
+
         acf_add_local_field_group($this->acfField);
+
 
     }
 

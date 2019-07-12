@@ -220,7 +220,7 @@ class MakeAcfFieldsForStructuredData
     }
 
 
-    public function execute()
+    public function execute($onPost = true, $onPage = true)
     {
 
         $args = [
@@ -243,6 +243,27 @@ class MakeAcfFieldsForStructuredData
                 ],
             ];
 
+        }
+
+        if ($onPost == true) {
+            $this->acfField['location'][] = [
+                [
+                    'param'    => 'post_type',
+                    'operator' => '==',
+                    'value'    => 'post',
+                ],
+            ];
+        }
+
+
+        if ($onPage == true) {
+            $this->acfField['location'][] = [
+                [
+                    'param'    => 'post_type',
+                    'operator' => '==',
+                    'value'    => 'page',
+                ],
+            ];
         }
 
         acf_add_local_field_group($this->acfField);

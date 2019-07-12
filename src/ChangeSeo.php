@@ -24,7 +24,6 @@ class ChangeSeo
     }
 
 
-
     public function changeOrganizationData($data)
     {
 

@@ -23,7 +23,6 @@ class MakeAcfFieldsForStructuredData
 
     }
 
-
     public function addImageField($fieldLabel, $fieldName)
     {
 
@@ -219,7 +218,6 @@ class MakeAcfFieldsForStructuredData
 
     }
 
-
     public function execute($onPost = true, $onPage = true)
     {
 
@@ -242,7 +240,6 @@ class MakeAcfFieldsForStructuredData
                     'value'    => $post_type,
                 ],
             ];
-
         }
 
         if ($onPost == true) {
@@ -254,8 +251,6 @@ class MakeAcfFieldsForStructuredData
                 ],
             ];
         }
-
-
         if ($onPage == true) {
             $this->acfField['location'][] = [
                 [
@@ -268,7 +263,4 @@ class MakeAcfFieldsForStructuredData
 
         acf_add_local_field_group($this->acfField);
     }
-
 }
-
-?>

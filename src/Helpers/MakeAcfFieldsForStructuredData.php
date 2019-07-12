@@ -11,15 +11,6 @@ class MakeAcfFieldsForStructuredData
         $this->acfField = [
             'key'                   => sha1($groupName),
             'title'                 => $groupName,
-            'location'              => [
-                [
-                    [
-                        'param'    => 'post_type',
-                        'operator' => '==',
-                        'value'    => 'voorbeeld_2',
-                    ],
-                ],
-            ],
             'menu_order'            => 0,
             'position'              => 'normal',
             'style'                 => 'default',

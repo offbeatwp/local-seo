@@ -23,6 +23,38 @@ class MakeAcfFieldsForStructuredData
 
     }
 
+
+    public function addImageField($fieldLabel, $fieldName)
+    {
+
+        $this->acfField['fields'][] = [
+            'key'               => sha1($fieldName),
+            'label'             => $fieldLabel,
+            'name'              => $fieldName,
+            'type'              => 'image',
+            'instructions'      => '',
+            'required'          => 0,
+            'conditional_logic' => 0,
+            'wrapper'           => [
+                'width' => '',
+                'class' => '',
+                'id'    => '',
+            ],
+            'return_format'     => 'url',
+            'preview_size'      => 'full',
+            'library'           => 'all',
+            'min_width'         => '',
+            'min_height'        => '',
+            'min_size'          => '',
+            'max_width'         => '',
+            'max_height'        => '',
+            'max_size'          => '',
+            'mime_types'        => '',
+        ];
+
+    }
+
+
     public function addTextField($fieldLabel, $fieldName)
     {
 
@@ -146,7 +178,6 @@ class MakeAcfFieldsForStructuredData
     public function addType($fieldLabel, $fieldName)
     {
 
-
         $this->acfField['fields'][] = [
             'key'               => sha1($fieldName),
             'label'             => $fieldLabel,
@@ -166,7 +197,7 @@ class MakeAcfFieldsForStructuredData
 
         $this->acfField['fields'][] = [
             'key'               => 'enabled' . sha1($fieldName),
-            'label'             => 'Is ' . $fieldLabel . ' is activated?',
+            'label'             => 'Show structured data for ' . $fieldLabel . '?',
             'name'              => 'enabled' . sha1($fieldName),
             'type'              => 'true_false',
             'instructions'      => '',
@@ -183,6 +214,8 @@ class MakeAcfFieldsForStructuredData
             'ui_on_text'        => '',
             'ui_off_text'       => '',
         ];
+
+        $this->addTextField('Headline', 'head_line' . $fieldName);
 
     }
 
@@ -213,8 +246,6 @@ class MakeAcfFieldsForStructuredData
         }
 
         acf_add_local_field_group($this->acfField);
-
-
     }
 
 }

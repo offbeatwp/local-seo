@@ -1,0 +1,23 @@
+{
+  "name": "offbeatwp/local-seo",
+  "description": "Adding structured data to Yoast (you must install offbeatWP & ACF)",
+  "license": "MIT",
+  "type": "offbeatwp-service",
+  "authors": [
+    {
+      "name": "Daan Seegers",
+      "email": "daan@raow.nl"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "OffbeatWP\\LocalSeo\\": "src"
+    }
+  },
+  "require": {
+    "offbeatwp/acf-core": "dev-master",
+    "offbeatwp/acf-layout": "dev-master",
+    "offbeatwp/acf-sitesettings": "dev-master",
+    "moneyphp/money": "^3.2"
+  }
+}

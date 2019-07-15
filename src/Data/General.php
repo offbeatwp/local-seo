@@ -1,43 +1,17 @@
 <?php
 
-namespace OffbeatWP\LocalSeo;
+namespace OffbeatWP\LocalSeo\Data;
 
-class SettingsScripts
+use Money\Currencies\ISOCurrencies;
+
+
+class General
 {
-    const ID = 'scripts';
-    const PRIORITY = 1;
 
-    public function title()
-    {
-        return __('Seo', 'raow');
-    }
-
-    public function form()
+    public static function companyKind()
     {
 
-        $form = new \OffbeatWP\Form\Form();
-        $form->addTab('general-information', 'Algemene gegevens');
-        $form->addField(\OffbeatWP\Form\Fields\Text::make('company_name', 'Bedrijfsnaam'));
-
-        $priceRange = \OffbeatWP\Form\Fields\Select::make('company_price_range', 'Prijsklasse');
-        $localCompanyKind = \OffbeatWP\Form\Fields\Select::make('company_kind', 'Soort bedrijf');
-
-        $priceRange->addOptions(['$$$' => '$$$', '$$' => '$$', '$' => '$']);
-        $form->addField($priceRange);
-
-        $openingsdays = \OffbeatWP\Form\Fields\Select::make('opening_hours', 'Openingstijden');
-        $openingsdays->addOptions([
-            'Monday' => 'Monday',
-            'Tuesday' => 'Tuesday',
-            'Wednesday' => 'Wednesday',
-            'Thursday' => 'Thursday',
-            'Friday' => 'Friday',
-            'Saturday' => 'Saturday',
-            'Sunday' => 'Sunday',
-        ]);
-
-
-        $localCompanyKind->addOptions([
+        $companyKind = [
             'AnimalShelter' => 'AnimalShelter',
             'ArchiveOrganization' => 'ArchiveOrganization',
             'AutomotiveBusiness' => 'AutomotiveBusiness',
@@ -194,61 +168,50 @@ class SettingsScripts
             'Pharmacy ' => 'Pharmacy',
             'Physician ' => 'Physician',
             'VeterinaryCare' => 'VeterinaryCare',
-        ]);
-
-
-        $time = [
-            '7:00' => '7:00',
-            '8:00' => '8:00',
-            '9:00' => '9:00',
-            '10:00' => '10:00',
-            '11:00' => '11:00',
-            '12:00' => '12:00',
-            '13:00' => '13:00',
-            '14:00' => '14:00',
-            '15:00' => '15:00',
-            '16:00' => '16:00',
-            '17:00' => '17:00',
-            '18:00' => '18:00',
-            '19:00' => '19:00',
-            '20:00' => '20:00',
-            '21:00' => '21:00',
-            '22:00' => '22:00',
-            '23:00' => '23:00',
-            '24:00' => '24:00',
-            '1:00' => '1:00',
-            '2:00' => '2:00',
-            '3:00' => '3:00',
-            '4:00' => '4:00',
-            '5:00' => '5:00',
-            '6:00' => '6:00',
         ];
 
-        $closingTime = \OffbeatWP\Form\Fields\Select::make('closing_time', 'Sluitingstijd');
-        $openingHours = \OffbeatWP\Form\Fields\Select::make('opening_time', 'Openingstijd');
-
-        $closingTime->addOptions($time);
-
-        $openingHours->addOptions($time);
-
-        $form->addField($localCompanyKind);
-
-        $form->addTab('contact-information', 'Contact gegevens');
-        $form->addField(\OffbeatWP\Form\Fields\Text::make('company_fax', 'Faxnummer'));
-        $form->addField(\OffbeatWP\Form\Fields\Text::make('company_phone', 'Telefoonnummer'));
-        $form->addField(\OffbeatWP\Form\Fields\Text::make('company_street', 'Straat'));
-        $form->addField(\OffbeatWP\Form\Fields\Text::make('company_number', 'Number'));
-        $form->addField(\OffbeatWP\Form\Fields\Text::make('company_zip_code', 'Postcode'));
-        $form->addField(\OffbeatWP\Form\Fields\Text::make('company_place', 'Plaats'));
-        $form->addField(\OffbeatWP\Form\Fields\Text::make('company_province', 'Provincie'));
-        $form->addField(\OffbeatWP\Form\Fields\Text::make('company_country', 'Land'));
-
-        $form->addTab('opening-hours', 'Openingstijden');
-
-        $form->addRepeater('opening-hours-selector',
-            'Openingstijden')->addField($openingsdays)->addField($openingHours)->addField($closingTime);
-
-        return $form;
+        return $companyKind;
 
     }
+
+    public static function priceRange()
+    {
+
+        $priceRange = ['$$$' => '$$$', '$$' => '$$', '$' => '$'];
+
+        return $priceRange;
+    }
+
+    public static function currency()
+    {
+
+        $isoCurrencies = new ISOCurrencies();
+
+        foreach ($isoCurrencies as $currency) {
+            $returnCurrency[$currency->getCode()] = $currency->getCode();
+        }
+
+        return $returnCurrency;
+    }
+
+    public static function paymentMethod()
+    {
+        $paymentMethod = [
+            'Cash' => 'Cash',
+            'Credit Card' => 'Credit Card',
+            'Cryptocurrency' => 'Cryptocurrency',
+            'Local Exchange Tradings System' => 'Local Exchange Tradings System',
+            'ByBankTransferInAdvance' => 'ByBankTransferInAdvance',
+            'ByInvoice' => 'ByInvoice',
+            'CheckInAdvance' => 'CheckInAdvance',
+            'COD' => 'COD',
+            'DirectDebit' => 'DirectDebit',
+            'GoogleCheckout' => 'GoogleCheckout',
+            'PayPal' => 'PayPal',
+            'PaySwarm' => 'PaySwarm'
+        ];
+
+        return $paymentMethod;
+    }
+
 }

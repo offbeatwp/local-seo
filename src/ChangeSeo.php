@@ -4,7 +4,9 @@ namespace OffbeatWP\LocalSeo;
 
 
 use function YoastSEO_Vendor\GuzzleHttp\default_ca_bundle;
+
 use OffbeatWP\LocalSeo\Helpers;
+
 
 class ChangeSeo
 {
@@ -14,12 +16,14 @@ class ChangeSeo
     {
 
         add_filter('wpseo_schema_organization', [$this, 'changeOrganizationData']);
+
         add_action('init', [$this, 'addMetaToAll']);
     }
 
-    public  function addMetaToAll(){
+    public function addMetaToAll()
+    {
 
-       new Helpers\PostStructuredData();
+        new Helpers\PostStructuredData();
 
     }
 
@@ -70,8 +74,8 @@ class ChangeSeo
         $data['address'] = [
             '@type'           => 'PostalAddress',
             'addressLocality' =>
-                setting(localseo_company_place) . ', ' . setting('localseo_company_country'),
-            'streetAddress'   => setting(localseo_company_street) . ' ' . setting('localseo_company_number'),
+                setting('localseo_company_place') . ', ' . setting('localseo_company_country'),
+            'streetAddress'   => setting('localseo_company_street') . ' ' . setting('localseo_company_number'),
             'postalCode'      => setting('localseo_company_zip_code'),
         ];
 
@@ -108,8 +112,7 @@ class ChangeSeo
 
         return $data;
 
+
     }
-
-
 }
 

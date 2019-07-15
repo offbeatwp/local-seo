@@ -4,10 +4,8 @@ namespace OffbeatWP\LocalSeo\Data;
 
 class DateTime
 {
-
     public static function time()
     {
-
         $time = [
             '01:00' => '1:00',
             '02:00' => '2:00',
@@ -35,13 +33,11 @@ class DateTime
             '24:00' => '24:00',
 
         ];
-
         return $time;
-
     }
 
-    public static function days(){
-
+    public static function days()
+    {
         $days = [
             'Mo' => 'Monday',
             'Tu' => 'Tuesday',
@@ -52,8 +48,6 @@ class DateTime
             'Su' => 'Sunday',
         ];
 
-            return $days;
+        return $days;
     }
-
-
 }

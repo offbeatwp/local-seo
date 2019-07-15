@@ -31,7 +31,6 @@ class ChangeSeo
     public function changeOrganizationData($data)
     {
 
-
         // General information
 
         //Company name
@@ -109,9 +108,7 @@ class ChangeSeo
             $data['currenciesAccepted'] = implode(', ', $currencies);
         }
 
-
         return $data;
-
 
     }
 }

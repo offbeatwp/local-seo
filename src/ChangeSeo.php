@@ -18,6 +18,9 @@ class ChangeSeo
         add_filter('wpseo_schema_organization', [$this, 'changeOrganizationData']);
 
         add_action('init', [$this, 'addMetaToAll']);
+
+
+        add_action( 'wp_head', [$this, 'add_inline_script'], 0 );
     }
 
     public function addMetaToAll()
@@ -25,6 +28,10 @@ class ChangeSeo
 
         new Helpers\PostStructuredData();
 
+    }
+
+    public function add_inline_script() {
+        echo "<script type='application/ld+json'>/* do awesome things */</script>\n";
     }
 
 
@@ -77,6 +84,8 @@ class ChangeSeo
             'streetAddress'   => setting('localseo_company_street') . ' ' . setting('localseo_company_number'),
             'postalCode'      => setting('localseo_company_zip_code'),
         ];
+
+
 
 
         // Opening Times company

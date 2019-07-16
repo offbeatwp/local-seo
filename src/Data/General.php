@@ -214,4 +214,13 @@ class General
         return $paymentMethod;
     }
 
+    public static function rating()
+    {
+        $rating = [];
+        for ($x = 0; $x <= 10; $x = $x + 0.1) {
+            $rating[] = $x;
+        }
+        return $rating;
+    }
+
 }

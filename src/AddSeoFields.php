@@ -84,6 +84,9 @@ class AddSeoFields
         $rating = \OffbeatWP\Form\Fields\Select::make('local_seo_rating', 'Rating');
         $rating->addOptions(\OffbeatWP\LocalSeo\data\General::rating());
 
+
+        $form->addField(\OffbeatWP\Form\Fields\Text::make('local_seo_review_best_rating', 'BestRating'));
+        $form->addField(\OffbeatWP\Form\Fields\Text::make('local_seo_review_worst_rating', 'worstRating'));
         $form->addRepeater('static_review_selector',
             'Review toevoegen')->addField(\OffbeatWP\Form\Fields\Text::make('static_review_selector_author',
             'Author'))->addField(\OffbeatWP\Form\Fields\Text::make('name',

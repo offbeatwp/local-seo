@@ -33,9 +33,9 @@ class ChangeSeo
     public function add_inline_script()
     {
         if (!empty(setting('static_review_selector'))) {
-//            echo '<script type="application/ld+json">';
-//            echo json_encode(\OffbeatWP\LocalSeo\Helpers\ReturnReviews::getAllReviews());
-//            echo '</script>';
+            echo '<script type="application/ld+json">';
+            echo json_encode(\OffbeatWP\LocalSeo\Helpers\ReturnReviews::getAllReviews());
+            echo '</script>';
         }
     }
 

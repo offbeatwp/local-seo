@@ -14,8 +14,9 @@ class ReturnReviews
         $reviews['aggregateRating'] = [];
         $reviewCount = 0;
         $reviewValue = 0;
+        
         foreach (setting('static_review_selector') as $review) {
-            $reviewCount ++;
+            $reviewCount++;
             $reviews['review'][] = [
                 '@type'        => 'Review',
                 'author'       => $review['static_review_selector_author'],
@@ -23,8 +24,8 @@ class ReturnReviews
                 'name'         => $review['name'],
                 'reviewRating' => [
                     '@type'       => 'Rating',
-                    'bestRating'  => 100,
-                    'worstRating' => 1,
+                    "bestRating"  => setting('local_seo_review_best_rating'),
+                    "worstRating" => setting('local_seo_review_worst_rating'),
                     'ratingValue' => $review['local_seo_rating'],
                 ],
             ];
@@ -37,6 +38,8 @@ class ReturnReviews
             '@type'       => 'AggregateRating',
             'ratingValue' => $reviewValue,
             'reviewCount' => $reviewCount,
+            "bestRating"  => setting('local_seo_review_best_rating'),
+            "worstRating" => setting('local_seo_review_worst_rating'),
         ];
 
         return $reviews;

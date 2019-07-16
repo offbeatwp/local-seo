@@ -14,8 +14,6 @@ class AddSeoFields
 
     public function form()
     {
-
-
         $form = new \OffbeatWP\Form\Form();
 
         $form->addTab('localseo_company_general-information', 'General information');
@@ -61,7 +59,7 @@ class AddSeoFields
         $form->addField(\OffbeatWP\Form\Fields\Text::make('localseo_company_province', 'Province'));
         $form->addField($countries);
 
-        $form->addTab('localseo_opening-hours', 'Opening hours');
+        $form->addTab('localseo_opening_hours', 'Opening hours');
         $form->addRepeater('opening_hours_selector',
             'Opening hours')->addField($openingsDays)->addField($openingHours)->addField($closingTime);
         $form->addTab('currency', 'Currency & Payment methods');

@@ -80,12 +80,15 @@ class AddSeoFields
 
 //        aggregateRating
         $form->addTab('static_reviews', 'Static Reviews');
-//        $form->addField();
+
+        $rating = \OffbeatWP\Form\Fields\Select::make('local_seo_rating', 'Rating');
+        $rating->addOptions(\OffbeatWP\LocalSeo\data\General::rating());
+
         $form->addRepeater('static_review_selector',
-            'Review toevoegen')->addField(\OffbeatWP\Form\Fields\Text::make('author',
+            'Review toevoegen')->addField(\OffbeatWP\Form\Fields\Text::make('static_review_selector_author',
             'Author'))->addField(\OffbeatWP\Form\Fields\Text::make('name',
-            'Name (for example: A masterpiece of literature)'))->addField(\OffbeatWP\Form\Fields\Text::make('review_body',
-            'Review Body'));
+            'Name (for example: A masterpiece of literature)'))->addField(\OffbeatWP\Form\Fields\Text::make('static_review_selector_review_body',
+            'Review Body'))->addField($rating);;
 
 
         return $form;

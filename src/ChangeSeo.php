@@ -52,6 +52,12 @@ class ChangeSeo
         if (setting('localseo_company_email') != null) {
             $data['email'] = setting('localseo_company_email');
         }
+
+        if (setting('localseo_company_link') != null) {
+            $data['ameAs'] = setting('localseo_company_link');
+        }
+
+
         //Company fax
         if (setting('localseo_company_fax') != null) {
             $data['faxNumber'] = setting('localseo_company_fax');

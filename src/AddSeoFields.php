@@ -61,7 +61,7 @@ class AddSeoFields
         $form->addField(\OffbeatWP\Form\Fields\Text::make('localseo_company_province', 'Province'));
         $form->addField($countries);
 
-        $form->addTab('opening-hours', 'Opening hours');
+        $form->addTab('localseo_opening-hours', 'Opening hours');
         $form->addRepeater('opening_hours_selector',
             'Opening hours')->addField($openingsDays)->addField($openingHours)->addField($closingTime);
         $form->addTab('currency', 'Currency & Payment methods');
@@ -69,22 +69,26 @@ class AddSeoFields
         //Currency
         $currencies = \OffbeatWP\Form\Fields\Select::make('local_seo_currencies', 'Currency');
         $currencies->addOptions(\OffbeatWP\LocalSeo\data\General::currency());
-        $form->addRepeater('currency-selectors',
+        $form->addRepeater('local_seo_currency_selectors',
             'Which currency can they pay at your store?')->addField($currencies);
 
         //Payment methods
         $paymentMethod = \OffbeatWP\Form\Fields\Select::make('payment_method', 'Payment methods');
         $paymentMethod->addOptions(\OffbeatWP\LocalSeo\data\General::paymentMethod());
-        $form->addRepeater('paymentmethod-selectors',
+        $form->addRepeater('local_seo_paymentmethod_selectors',
             'Which payment Method can they use at your store?')->addField($paymentMethod);
 
 //        aggregateRating
         $form->addTab('static_reviews', 'Static Reviews');
 
+        $enabled = \OffbeatWP\Form\Fields\Select::make('static_reviews_enabled', 'Enable static reviews');
+        $enabled->addOptions(\OffbeatWP\LocalSeo\data\General::enabled());
+
+
         $rating = \OffbeatWP\Form\Fields\Select::make('local_seo_rating', 'Rating');
         $rating->addOptions(\OffbeatWP\LocalSeo\data\General::rating());
 
-
+        $form->addField($enabled);
         $form->addField(\OffbeatWP\Form\Fields\Text::make('local_seo_review_best_rating', 'BestRating'));
         $form->addField(\OffbeatWP\Form\Fields\Text::make('local_seo_review_worst_rating', 'worstRating'));
         $form->addRepeater('static_review_selector',

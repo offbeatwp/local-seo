@@ -223,4 +223,13 @@ class General
         return $rating;
     }
 
+    public static function enabled()
+    {
+        return [
+            'false' => 'False',
+            'true'  => 'True',
+        ];
+
+    }
+
 }

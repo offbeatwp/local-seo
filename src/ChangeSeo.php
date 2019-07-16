@@ -32,7 +32,7 @@ class ChangeSeo
 
     public function add_inline_script()
     {
-        if (!empty(setting('static_review_selector'))) {
+        if (setting('static_reviews_enabled') == 'true') {
             echo '<script type="application/ld+json">';
             echo json_encode(\OffbeatWP\LocalSeo\Helpers\ReturnReviews::getAllReviews());
             echo '</script>';
@@ -92,9 +92,9 @@ class ChangeSeo
 
         // Opening Times company
 
-        if (setting('opening-hours-selector') != null) {
+        if (setting('opening_hours_selector') != null) {
             $days = null;
-            foreach (setting('opening-hours-selector') as $day) {
+            foreach (setting('opening_hours_selector') as $day) {
                 $days[] = $day['localseo_opening_day'] . ' ' . $day['localseo_opening_time'] . '-' . $day['localseo_closing_time'];
             }
             $data['openingHours'] = $days;
@@ -103,17 +103,17 @@ class ChangeSeo
 
         // $$$ company
 
-        if (setting('paymentmethod-selectors') != null) {
+        if (setting('local_seo_paymentmethod_selectors') != null) {
             $paymentMethods = null;
-            foreach (setting('paymentmethod-selectors') as $paymentMethode) {
+            foreach (setting('local_seo_paymentmethod_selectors') as $paymentMethode) {
                 $paymentMethods[] = $paymentMethode['payment_method'];
             }
             $data['paymentAccepted'] = implode(', ', $paymentMethods);
         }
 
-        if (setting('currency-selectors') != null) {
+        if (setting('local_seo_currency_selectors') != null) {
             $currencies = null;
-            foreach (setting('currency-selectors') as $currency) {
+            foreach (setting('local_seo_currency_selectors') as $currency) {
                 $currencies[] = $currency['local_seo_currencies'];
             }
             $data['currenciesAccepted'] = implode(', ', $currencies);

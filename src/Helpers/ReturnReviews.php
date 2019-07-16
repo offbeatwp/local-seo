@@ -61,8 +61,8 @@ class ReturnReviews
 
         $reviews['aggregateRating'] = [
             '@type'       => 'AggregateRating',
-            'ratingValue' => $reviewValue,
-            'reviewCount' => $reviewCount,
+            'ratingValue' => (int) $reviewValue,
+            'reviewCount' => (int) $reviewCount,
             "bestRating"  => (int) setting('local_seo_review_best_rating'),
             "worstRating" => (int) setting('local_seo_review_worst_rating'),
         ];

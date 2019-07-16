@@ -82,11 +82,16 @@ class AddSeoFields
         $enabled = \OffbeatWP\Form\Fields\Select::make('static_reviews_enabled', 'Enable static reviews');
         $enabled->addOptions(\OffbeatWP\LocalSeo\data\General::enabled());
 
+        $onlyGeneralScore = \OffbeatWP\Form\Fields\Select::make('only_general_score', 'Only General Score');
+        $onlyGeneralScore->addOptions(\OffbeatWP\LocalSeo\data\General::enabled());
+
 
         $rating = \OffbeatWP\Form\Fields\Select::make('local_seo_rating', 'Rating');
         $rating->addOptions(\OffbeatWP\LocalSeo\data\General::rating());
 
         $form->addField($enabled);
+        $form->addField($onlyGeneralScore);
+
         $form->addField(\OffbeatWP\Form\Fields\Text::make('local_seo_review_best_rating', 'BestRating'));
         $form->addField(\OffbeatWP\Form\Fields\Text::make('local_seo_review_worst_rating', 'worstRating'));
         $form->addRepeater('static_review_selector',

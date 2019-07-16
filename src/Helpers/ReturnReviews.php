@@ -45,8 +45,8 @@ class ReturnReviews
                 'name'         => $review['name'],
                 'reviewRating' => [
                     '@type'       => 'Rating',
-                    "bestRating"  => setting('local_seo_review_best_rating'),
-                    "worstRating" => setting('local_seo_review_worst_rating'),
+                    "bestRating"  => (int) setting('local_seo_review_best_rating'),
+                    "worstRating" => (int) setting('local_seo_review_worst_rating'),
                     'ratingValue' => $review['local_seo_rating'],
                 ],
             ];
@@ -55,12 +55,16 @@ class ReturnReviews
 
         $reviewValue = $reviewValue / $reviewCount;
 
+        if(setting('only_general_score') != 'false'){
+            $reviews['review'] = '';
+        }
+
         $reviews['aggregateRating'] = [
             '@type'       => 'AggregateRating',
             'ratingValue' => $reviewValue,
             'reviewCount' => $reviewCount,
-            "bestRating"  => setting('local_seo_review_best_rating'),
-            "worstRating" => setting('local_seo_review_worst_rating'),
+            "bestRating"  => (int) setting('local_seo_review_best_rating'),
+            "worstRating" => (int) setting('local_seo_review_worst_rating'),
         ];
 
         return $reviews;

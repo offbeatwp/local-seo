@@ -18,6 +18,9 @@ class ChangeSeo
         add_filter('wpseo_schema_organization', [$this, 'changeOrganizationData']);
 
         add_action('init', [$this, 'addMetaToAll']);
+
+
+        add_action('wp_head', [$this, 'add_inline_script'], 0);
     }
 
     public function addMetaToAll()
@@ -27,6 +30,14 @@ class ChangeSeo
 
     }
 
+    public function add_inline_script()
+    {
+        if (!empty(setting('static_review_selector'))) {
+            echo '<script type="application/ld+json">';
+            echo json_encode(\OffbeatWP\LocalSeo\Helpers\ReturnReviews::getAllReviews());
+            echo '</script>';
+        }
+    }
 
     public function changeOrganizationData($data)
     {

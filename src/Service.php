@@ -17,7 +17,6 @@ class Service extends AbstractService
 
         new ChangeSeo();
 
-//        $settings->addPage(\OffbeatWP\LocalSeo\SettingsScripts::class);
 
     }
 }

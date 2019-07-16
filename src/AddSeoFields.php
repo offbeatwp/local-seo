@@ -62,7 +62,7 @@ class AddSeoFields
         $form->addField($countries);
 
         $form->addTab('opening-hours', 'Opening hours');
-        $form->addRepeater('opening-hours-selector',
+        $form->addRepeater('opening_hours_selector',
             'Opening hours')->addField($openingsDays)->addField($openingHours)->addField($closingTime);
         $form->addTab('currency', 'Currency & Payment methods');
 
@@ -77,6 +77,22 @@ class AddSeoFields
         $paymentMethod->addOptions(\OffbeatWP\LocalSeo\data\General::paymentMethod());
         $form->addRepeater('paymentmethod-selectors',
             'Which payment Method can they use at your store?')->addField($paymentMethod);
+
+//        aggregateRating
+        $form->addTab('static_reviews', 'Static Reviews');
+
+        $rating = \OffbeatWP\Form\Fields\Select::make('local_seo_rating', 'Rating');
+        $rating->addOptions(\OffbeatWP\LocalSeo\data\General::rating());
+
+
+        $form->addField(\OffbeatWP\Form\Fields\Text::make('local_seo_review_best_rating', 'BestRating'));
+        $form->addField(\OffbeatWP\Form\Fields\Text::make('local_seo_review_worst_rating', 'worstRating'));
+        $form->addRepeater('static_review_selector',
+            'Review toevoegen')->addField(\OffbeatWP\Form\Fields\Text::make('static_review_selector_author',
+            'Author'))->addField(\OffbeatWP\Form\Fields\Text::make('name',
+            'Name (for example: A masterpiece of literature)'))->addField(\OffbeatWP\Form\Fields\Text::make('static_review_selector_review_body',
+            'Review Body'))->addField($rating);;
+
 
         return $form;
 

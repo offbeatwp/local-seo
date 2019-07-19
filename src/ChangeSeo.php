@@ -17,7 +17,7 @@ class ChangeSeo
 
         add_filter('wpseo_schema_organization', [$this, 'changeOrganizationData']);
         add_action('init', [$this, 'addMetaToAll']);
-        add_action('wp_head', [$this, 'add_inline_script'], 0);
+        add_action('wp_head', [$this, 'addInlineScript'], 0);
 
     }
 
@@ -28,7 +28,7 @@ class ChangeSeo
 
     }
 
-    public function add_inline_script()
+    public function addInlineScript()
     {
         if (setting('static_reviews_enabled') == 'true') {
             echo '<script type="application/ld+json">';

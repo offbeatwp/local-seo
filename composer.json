@@ -19,5 +19,7 @@
     "offbeatwp/acf-layout": "dev-master",
     "offbeatwp/acf-sitesettings": "dev-master",
     "moneyphp/money": "^3.2"
-  }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }

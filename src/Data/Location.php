@@ -240,7 +240,7 @@ class Location
             "Uzbekistan"                                   => "Uzbekistan",
             "Vanuatu"                                      => "Vanuatu",
             "Venezuela"                                    => "Venezuela",
-            "Vietnam"                                     => "Vietnam",
+            "Vietnam"                                      => "Vietnam",
             "Virgin Islands, British"                      => "Virgin Islands, British",
             "Virgin Islands, U.s."                         => "Virgin Islands, U.s.",
             "Wallis and Futuna"                            => "Wallis and Futuna",

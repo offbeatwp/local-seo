@@ -28,21 +28,21 @@ class AddSeoFields
 
         //priceRange
         $priceRange = \OffbeatWP\Form\Fields\Select::make('company_price_range', 'Price class');
-        $priceRange->addOptions(\OffbeatWP\LocalSeo\data\General::priceRange());
+        $priceRange->addOptions(\OffbeatWP\LocalSeo\Data\General::priceRange());
         $form->addField($priceRange);
 
         //Opening and closing time
         $openingsDays = \OffbeatWP\Form\Fields\Select::make('localseo_opening_day', 'Day');
-        $openingsDays->addOptions(\OffbeatWP\LocalSeo\data\DateTime::days());
-        $localCompanyKind->addOptions(\OffbeatWP\LocalSeo\data\General::companyKind());
+        $openingsDays->addOptions(\OffbeatWP\LocalSeo\Data\DateTime::days());
+        $localCompanyKind->addOptions(\OffbeatWP\LocalSeo\Data\General::companyKind());
         $closingTime = \OffbeatWP\Form\Fields\Select::make('localseo_closing_time', 'Closing time');
         $openingHours = \OffbeatWP\Form\Fields\Select::make('localseo_opening_time', 'Opening time');
-        $closingTime->addOptions(\OffbeatWP\LocalSeo\data\DateTime::time());
-        $openingHours->addOptions(\OffbeatWP\LocalSeo\data\DateTime::time());
+        $closingTime->addOptions(\OffbeatWP\LocalSeo\Data\DateTime::time());
+        $openingHours->addOptions(\OffbeatWP\LocalSeo\Data\DateTime::time());
 
         //Countries
         $countries = \OffbeatWP\Form\Fields\Select::make('localseo_company_country', 'Country');
-        $countries->addOptions(\OffbeatWP\LocalSeo\data\Location::country());
+        $countries->addOptions(\OffbeatWP\LocalSeo\Data\Location::country());
 
 
         $form->addField($localCompanyKind);
@@ -66,39 +66,39 @@ class AddSeoFields
 
         //Currency
         $currencies = \OffbeatWP\Form\Fields\Select::make('local_seo_currencies', 'Currency');
-        $currencies->addOptions(\OffbeatWP\LocalSeo\data\General::currency());
+        $currencies->addOptions(\OffbeatWP\LocalSeo\Data\General::currency());
         $form->addRepeater('local_seo_currency_selectors',
             'Which currency can they pay at your store?')->addField($currencies);
 
         //Payment methods
         $paymentMethod = \OffbeatWP\Form\Fields\Select::make('payment_method', 'Payment methods');
-        $paymentMethod->addOptions(\OffbeatWP\LocalSeo\data\General::paymentMethod());
+        $paymentMethod->addOptions(\OffbeatWP\LocalSeo\Data\General::paymentMethod());
         $form->addRepeater('local_seo_paymentmethod_selectors',
             'Which payment Method can they use at your store?')->addField($paymentMethod);
 
 //        aggregateRating
-        $form->addTab('static_reviews', 'Static Reviews');
+//         $form->addTab('static_reviews', 'Static Reviews');
 
-        $enabled = \OffbeatWP\Form\Fields\Select::make('static_reviews_enabled', 'Enable static reviews');
-        $enabled->addOptions(\OffbeatWP\LocalSeo\data\General::enabled());
+//         $enabled = \OffbeatWP\Form\Fields\Select::make('static_reviews_enabled', 'Enable static reviews');
+//         $enabled->addOptions(\OffbeatWP\LocalSeo\Data\General::enabled());
 
-        $onlyGeneralScore = \OffbeatWP\Form\Fields\Select::make('only_general_score', 'Only General Score');
-        $onlyGeneralScore->addOptions(\OffbeatWP\LocalSeo\data\General::enabled());
+//         $onlyGeneralScore = \OffbeatWP\Form\Fields\Select::make('only_general_score', 'Only General Score');
+//         $onlyGeneralScore->addOptions(\OffbeatWP\LocalSeo\Data\General::enabled());
 
 
-        $rating = \OffbeatWP\Form\Fields\Select::make('local_seo_rating', 'Rating');
-        $rating->addOptions(\OffbeatWP\LocalSeo\data\General::rating());
+//         $rating = \OffbeatWP\Form\Fields\Select::make('local_seo_rating', 'Rating');
+//         $rating->addOptions(\OffbeatWP\LocalSeo\Data\General::rating());
 
-        $form->addField($enabled);
-        $form->addField($onlyGeneralScore);
+//         $form->addField($enabled);
+//         $form->addField($onlyGeneralScore);
 
-        $form->addField(\OffbeatWP\Form\Fields\Text::make('local_seo_review_best_rating', 'BestRating'));
-        $form->addField(\OffbeatWP\Form\Fields\Text::make('local_seo_review_worst_rating', 'worstRating'));
-        $form->addRepeater('static_review_selector',
-            'Review toevoegen')->addField(\OffbeatWP\Form\Fields\Text::make('static_review_selector_author',
-            'Author'))->addField(\OffbeatWP\Form\Fields\Text::make('name',
-            'Name (for example: A masterpiece of literature)'))->addField(\OffbeatWP\Form\Fields\Text::make('static_review_selector_review_body',
-            'Review Body'))->addField($rating);;
+//         $form->addField(\OffbeatWP\Form\Fields\Text::make('local_seo_review_best_rating', 'BestRating'));
+//         $form->addField(\OffbeatWP\Form\Fields\Text::make('local_seo_review_worst_rating', 'worstRating'));
+//         $form->addRepeater('static_review_selector',
+//             'Review toevoegen')->addField(\OffbeatWP\Form\Fields\Text::make('static_review_selector_author',
+//             'Author'))->addField(\OffbeatWP\Form\Fields\Text::make('name',
+//             'Name (for example: A masterpiece of literature)'))->addField(\OffbeatWP\Form\Fields\Text::make('static_review_selector_review_body',
+//             'Review Body'))->addField($rating);;
 
 
         return $form;

@@ -47,7 +47,8 @@ class ChangeSeo
         // General information
 
         //Company name
-
+        $data['@context'] = "https://schema.org";
+        
         if (setting('localseo_company_name') != null) {
             $data['name'] = setting('localseo_company_name');
         }
@@ -56,9 +57,9 @@ class ChangeSeo
         if (setting('localseo_company_email') != null) {
             $data['email'] = setting('localseo_company_email');
         }
-        if (setting('localseo_company_link') != null) {
-            $data['ameAs'] = setting('localseo_company_link');
-        }
+//         if (setting('localseo_company_link') != null) {
+//             $data['ameAs'] = setting('localseo_company_link');
+//         }
         //Company fax
 
         if (setting('localseo_company_fax') != null) {

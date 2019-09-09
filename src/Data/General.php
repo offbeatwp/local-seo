@@ -4,13 +4,11 @@ namespace OffbeatWP\LocalSeo\Data;
 
 use Money\Currencies\ISOCurrencies;
 
-
 class General
 {
 
     public static function companyKind()
     {
-
         $companyKind = [
             'AnimalShelter'               => 'AnimalShelter',
             'ArchiveOrganization'         => 'ArchiveOrganization',
@@ -86,31 +84,31 @@ class General
             'Motel'                       => 'Motel',
             'Resort'                      => 'Resort',
             'MedicalBusiness'             => 'MedicalBusiness',
-            'CommunityHealth '            => 'CommunityHealth',
-            'Dentist '                    => 'Dentist',
-            'Dermatology '                => 'Dermatology',
-            'DietNutrition '              => 'DietNutrition',
-            'Emergency '                  => 'Emergency',
-            'Geriatric '                  => 'Geriatric',
-            'Gynecologic '                => 'Gynecologic',
+            'CommunityHealth'             => 'CommunityHealth',
+            'Dentist'                     => 'Dentist',
+            'Dermatology'                 => 'Dermatology',
+            'DietNutrition'               => 'DietNutrition',
+            'Emergency'                   => 'Emergency',
+            'Geriatric'                   => 'Geriatric',
+            'Gynecologic'                 => 'Gynecologic',
             'MedicalClinic'               => 'MedicalClinic',
-            'Midwifery '                  => 'Midwifery',
-            'Nursing '                    => 'Nursing',
-            'Obstetric '                  => 'Obstetric',
-            'Oncologic '                  => 'Oncologic',
+            'Midwifery'                   => 'Midwifery',
+            'Nursing'                     => 'Nursing',
+            'Obstetric'                   => 'Obstetric',
+            'Oncologic'                   => 'Oncologic',
             'Optician'                    => 'Optician',
-            'Optometric '                 => 'Optometric',
-            'Otolaryngologic '            => 'Otolaryngologic',
-            'Pediatric '                  => 'Pediatric',
+            'Optometric'                  => 'Optometric',
+            'Otolaryngologic'             => 'Otolaryngologic',
+            'Pediatric'                   => 'Pediatric',
             'Pharmacy'                    => 'Pharmacy',
             'Physician'                   => 'Physician',
-            'Physiotherapy '              => 'Physiotherapy',
-            'PlasticSurgery '             => 'PlasticSurgery',
-            'Podiatric '                  => 'Podiatric',
-            'PrimaryCare '                => 'PrimaryCare',
-            'Psychiatric '                => 'Psychiatric',
-            'PhysicalTherapy '            => 'PhysicalTherapy',
-            'PublicHealth '               => 'PublicHealth',
+            'Physiotherapy'               => 'Physiotherapy',
+            'PlasticSurgery'              => 'PlasticSurgery',
+            'Podiatric'                   => 'Podiatric',
+            'PrimaryCare'                 => 'PrimaryCare',
+            'Psychiatric'                 => 'Psychiatric',
+            'PhysicalTherapy'             => 'PhysicalTherapy',
+            'PublicHealth'                => 'PublicHealth',
             'ProfessionalService'         => 'ProfessionalService',
             'RadioStation'                => 'RadioStation',
             'RealEstateAgent'             => 'RealEstateAgent',
@@ -121,14 +119,14 @@ class General
             'BowlingAlley'                => 'BowlingAlley',
             'ExerciseGym'                 => 'ExerciseGym',
             'GolfCourse'                  => 'GolfCourse',
-            'HealthClub '                 => 'HealthClub',
+            'HealthClub'                  => 'HealthClub',
             'PublicSwimmingPool'          => 'PublicSwimmingPool',
             'SkiResort'                   => 'SkiResort',
             'SportsClub'                  => 'SportsClub',
             'StadiumOrArena'              => 'StadiumOrArena',
             'TennisComplex'               => 'TennisComplex',
             'Store'                       => 'Store',
-            'AutoPartsStore '             => 'AutoPartsStore',
+            'AutoPartsStore'              => 'AutoPartsStore',
             'BikeStore'                   => 'BikeStore',
             'BookStore'                   => 'BookStore',
             'ClothingStore'               => 'ClothingStore',
@@ -162,22 +160,20 @@ class General
             'TouristInformationCenter'    => 'TouristInformationCenter',
             'TravelAgency'                => 'TravelAgency',
             'MedicalOrganization'         => 'MedicalOrganization',
-            'Dentist '                    => 'Dentist',
+            'Dentist'                     => 'Dentist',
             'DiagnosticLab'               => 'DiagnosticLab',
-            'Hospital '                   => 'Hospital',
-            'MedicalClinic '              => 'MedicalClinic',
-            'Pharmacy '                   => 'Pharmacy',
-            'Physician '                  => 'Physician',
+            'Hospital'                    => 'Hospital',
+            'MedicalClinic'               => 'MedicalClinic',
+            'Pharmacy'                    => 'Pharmacy',
+            'Physician'                   => 'Physician',
             'VeterinaryCare'              => 'VeterinaryCare',
         ];
 
         return $companyKind;
-
     }
 
     public static function priceRange()
     {
-
         $priceRange = ['$$$' => '$$$', '$$' => '$$', '$' => '$'];
 
         return $priceRange;
@@ -185,7 +181,6 @@ class General
 
     public static function currency()
     {
-
         $isoCurrencies = new ISOCurrencies();
 
         foreach ($isoCurrencies as $currency) {
@@ -221,6 +216,7 @@ class General
         for ($x = 0; $x <= 10; $x = $x + 0.1) {
             $rating[] = $x;
         }
+
         return $rating;
     }
 
@@ -230,7 +226,6 @@ class General
             'false' => 'False',
             'true'  => 'True',
         ];
-
     }
 
 }

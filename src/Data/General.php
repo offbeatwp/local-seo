@@ -109,6 +109,7 @@ class General
             'Podiatric '                  => 'Podiatric',
             'PrimaryCare '                => 'PrimaryCare',
             'Psychiatric '                => 'Psychiatric',
+            'PhysicalTherapy '            => 'PhysicalTherapy',
             'PublicHealth '               => 'PublicHealth',
             'ProfessionalService'         => 'ProfessionalService',
             'RadioStation'                => 'RadioStation',

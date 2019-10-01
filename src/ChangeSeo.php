@@ -2,44 +2,36 @@
 
 namespace OffbeatWP\LocalSeo;
 
-
 use function YoastSEO_Vendor\GuzzleHttp\default_ca_bundle;
 
 use OffbeatWP\LocalSeo\Helpers;
 
-
 class ChangeSeo
 {
 
-
     public function __construct()
     {
-        
         add_action('init', [$this, 'addMetaToAll']);
         add_action('wp_head', [$this, 'add_inline_script'], 0);
         add_action('wp_head', [$this, 'changeOrganizationData'], 0);
-
     }
 
     public function addMetaToAll()
     {
-
         new Helpers\PostStructuredData();
-
     }
 
     public function add_inline_script()
     {
-        if (setting('static_reviews_enabled') == 'true') {
-            echo '<script type="application/ld+json">';
-            echo json_encode(\OffbeatWP\LocalSeo\Helpers\ReturnReviews::getAllReviews());
-            echo '</script>';
-        }
+//        if (setting('static_reviews_enabled') == 'true') {
+//            echo '<script type="application/ld+json">';
+//            echo json_encode(\OffbeatWP\LocalSeo\Helpers\ReturnReviews::getAllReviews());
+//            echo '</script>';
+//        }
 
         echo '<script type="application/ld+json">';
         echo json_encode($this->changeOrganizationData());
         echo '</script>';
-
     }
 
     public function changeOrganizationData()
@@ -48,7 +40,7 @@ class ChangeSeo
 
         //Company name
         $data['@context'] = "https://schema.org";
-        
+
         if (setting('localseo_company_name') != null) {
             $data['name'] = setting('localseo_company_name');
         }
@@ -132,7 +124,6 @@ class ChangeSeo
         }
 
         return $data;
-
     }
 }
 

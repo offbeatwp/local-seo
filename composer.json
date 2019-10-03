@@ -1,6 +1,6 @@
 {
   "name": "offbeatwp/local-seo",
-  "description": "Adding structured data to Yoast (you must install offbeatWP & ACF)",
+  "description": "Adding structured data to your website (you must install offbeatWP (https://github.com/offbeatwp/documentation)  & ACF (https://www.advancedcustomfields.com))",
   "license": "MIT",
   "type": "offbeatwp-service",
   "authors": [

@@ -10,7 +10,7 @@ OffbeatWP has an SEO plugin for the local business that allows adding and modify
 - The company name.
 - The company address.
 - The company opening time.
-- The currency the company uses
+- The currency the company uses.
 
 
 
